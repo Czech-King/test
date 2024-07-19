@@ -2,7 +2,7 @@ pipeline {
     agent any
         environment {
         // Define Docker repository and image name
-        DOCKER_REPO = 'boyca/test'
+        DOCKER_REPO = 'boyca/selvan/app:v2'
     }
 
     stages {
