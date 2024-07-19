@@ -3,7 +3,7 @@ pipeline {
         environment {
         // Define Docker repository and image name
         DOCKER_REPO = 'selvan/app:v1'
-        DOCKER_REPO = 'boyca/test'    
+        DOCKER_REPO = 'test'    
     }
 
     stages {
@@ -46,7 +46,7 @@ pipeline {
                            sh "docker login -u ${dockerusername} -p ${dockerpassword}"
                         
                         // Push Docker image to Docker Hub
-                        sh 'docker push ${DOCKER_REPO}:${DOCKER_IMAGE.split(":")[1]}'
+                        sh 'docker push ${DOCKER_REPO}:${DOCKER_IMAGE}'
                     }
                 }
             }
