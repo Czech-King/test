@@ -45,7 +45,7 @@ pipeline {
                            sh "docker login -u ${dockerusername} -p ${dockerpassword}"
                         
                         // Push Docker image to Docker Hub
-                        sh 'docker push ${DOCKER_REPO}:${DOCKER_TAG}
+                        sh 'docker push ${DOCKER_REPO}:${DOCKER_TAG}'
                     }
                 }
             }
