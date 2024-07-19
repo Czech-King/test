@@ -3,7 +3,7 @@ pipeline {
 environment {
 
 	DOCKER_REPO = 'boyca/test1'
-	DOCKER_TAG = 'v1'
+	DOCKER_TAG = 'app'
 }
     stages {
         stage('Checkout') {
@@ -24,7 +24,7 @@ environment {
             // Docker image build Stage
             steps {
                 script {
-                   sh 'docker build -t app .'
+                   sh 'docker build -t v2 .'
                     sh 'docker images'
         }
     }
