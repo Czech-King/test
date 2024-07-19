@@ -25,5 +25,12 @@ pipeline {
     }
     
 }
+        stage ('Build Docker Image and push'){
+            steps {
+                script {
+                   sh "docker login -u ${dockerusername} -p ${dockerpassword}"
+                        }
+                    }
+}
 }
 }
