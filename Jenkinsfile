@@ -45,7 +45,7 @@ environment {
                     }
                 }
             }
-        stage('Docker Deploy{
+        stage('Docker Deploy') {
             // Docker deploy stage
             steps {
                 script {
