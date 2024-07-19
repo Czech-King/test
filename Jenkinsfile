@@ -45,15 +45,7 @@ environment {
                     }
                 }
             }
-        stage('Docker Deploy') {
-            // Docker deploy stage
-            steps {
-                script {
-	sh 'docker run -itd -p "8081:80" app:latest'
-        }
-    }
-    }
 		    
         }
 }
-}
+
