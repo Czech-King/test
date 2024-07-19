@@ -41,7 +41,7 @@ environment {
                            // sh 'docker tag app boyca/test1:v1'
                            // sh 'docker push boyca/test1:v1'
                         sh 'docker tag app ${DOCKER_REPO}:${DOCKER_TAG}'
-                        sh 'docker push $${DOCKER_REPO}:${DOCKER_TAG}'
+                        sh 'docker push ${DOCKER_REPO}:${DOCKER_TAG}'
                     }
                 }
             }
