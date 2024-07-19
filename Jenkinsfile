@@ -2,8 +2,7 @@ pipeline {
     agent any
         environment {
         // Define Docker repository and image name
-        DOCKER_REPO = 'selvan/app:v1'
-        DOCKER_REPO = 'test'    
+        DOCKER_REPO = 'test1'    
     }
 
     stages {
@@ -46,7 +45,7 @@ pipeline {
                            sh "docker login -u ${dockerusername} -p ${dockerpassword}"
                         
                         // Push Docker image to Docker Hub
-                        sh 'docker push ${DOCKER_REPO}:${DOCKER_IMAGE}'
+                        sh 'docker push ${DOCKER_REPO}'
                     }
                 }
             }
