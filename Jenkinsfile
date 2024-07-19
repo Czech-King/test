@@ -26,13 +26,6 @@ pipeline {
     }
     
 }
-        // stage ('Build Docker Image and push'){
-        //     steps {
-        //         script {
-        //            sh "docker login -u ${dockerusername} -p ${dockerpassword}"
-        //                 }
-        //             }
-// }
             stage('Push Docker Image') {
                steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials-id', usernameVariable: 'dockerusername', passwordVariable: 'dockerpassword')]) {
@@ -41,8 +34,8 @@ pipeline {
                            sh "docker login -u ${dockerusername} -p ${dockerpassword}"
                         
                         // Push Docker image to Docker Hub
-                        sh 'docker tag app boyca/test:v1'
-                        sh 'docker push boyca/test1:v1'
+                           sh 'docker tag app boyca/test1:v1'
+                           sh 'docker push boyca/test1:v1'
                     }
                 }
             }
