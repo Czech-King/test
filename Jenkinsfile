@@ -1,5 +1,9 @@
 pipeline {
     agent any
+        environment {
+        // Define Docker repository and image name
+        DOCKER_REPO = 'boyca/test'
+    }
 
     stages {
         stage('Checkout') {
@@ -25,12 +29,25 @@ pipeline {
     }
     
 }
-        stage ('Build Docker Image and push'){
-            steps {
-                script {
-                   sh "docker login -u ${dockerusername} -p ${dockerpassword}"
-                        }
+        // stage ('Build Docker Image and push'){
+        //     steps {
+        //         script {
+        //            sh "docker login -u ${dockerusername} -p ${dockerpassword}"
+        //                 }
+        //             }
+// }
+            stage('Push Docker Image') {
+               steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials-id', usernameVariable: 'dockerusername', passwordVariable: 'dockerpassword')]) {
+                    script {
+                        // Login to Docker Hub
+                           sh "docker login -u ${dockerusername} -p ${dockerpassword}"
+                        
+                        // Push Docker image to Docker Hub
+                        sh 'docker push ${DOCKER_REPO}:latest'
                     }
-}
+                }
+            }
+        }
 }
 }
