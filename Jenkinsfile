@@ -1,9 +1,5 @@
 pipeline {
     agent any
-        environment {
-        // Define Docker repository and image name
-        DOCKER_REPO = 'test1'    
-    }
 
     stages {
         stage('Checkout') {
@@ -45,7 +41,8 @@ pipeline {
                            sh "docker login -u ${dockerusername} -p ${dockerpassword}"
                         
                         // Push Docker image to Docker Hub
-                        sh 'docker push ${DOCKER_REPO}'
+                        sh 'docker tag app boyca/test:v1'
+                        sh 'docker push boyca/test1:v1'
                     }
                 }
             }
