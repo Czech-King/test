@@ -26,6 +26,7 @@ pipeline {
             steps {
                 script {
                    sh 'docker build -t selvan/app:v2 .'
+                    sh 'docker images'
         }
     }
     
